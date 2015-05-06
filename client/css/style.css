@@ -1,0 +1,198 @@
+#add-tracks-table input[type=checkbox]{
+    margin-bottom: 0;
+}
+.main-content{
+    padding-bottom: 64px;
+}
+#player-stick-bottom{
+    position: fixed;
+    height: 64px;
+    width: 100%;
+    bottom: 0;
+    background-color: #FFF;
+    border-top: 1px solid #DFDFDF;
+    text-align: center;
+}
+.playback-block{
+    display:inline-block;
+    font-size: 14px;
+}
+.playback-bar-wrapper{
+    width: 500px;
+    height: 5px;
+    background-color: #e9e9e9;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.playback-bar-wrapper .playback-bar-progress{
+    height: 5px;
+    background-color: #2b81af;
+    width: 0;
+    transition: width 10ms linear;
+}
+
+.c-track-title{
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: -12px;
+}
+
+.n-track-title{
+    display: block;
+    font-size: 14px;
+    text-align: center;
+}
+
+.playback-wrap{
+    width: 600px;
+    display: inline-block;
+
+    vertical-align: middle;
+}
+#player-stick-bottom > span,
+#player-stick-bottom > a{
+    vertical-align: middle;
+}
+
+.f-dropdown{
+    max-width: 95%;
+}
+.search-track-wrap{
+    position: relative;
+}
+.search-track-wrap .close,
+.search-track-wrap .spinner{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.search-track-wrap .close {
+    cursor: pointer;
+}
+.track-entity{
+    display: inline-block;
+    font-size: 14px;
+}
+
+.track-entity .preview-cover {
+    float: left;
+    margin-right: 7px;
+}
+.track-entity img {
+    display: inline-block;
+    height: 64px;
+    background-size: cover;
+    background-image: url( "../img/NoCover.jpg" ) ;
+}
+.track-titles{
+    float:left;
+    max-width: 575px;
+}
+.track-entity .track-title{
+    font-weight: bold;
+    color: #2ba6cb;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 575px;
+    overflow: hidden;
+}
+.track-entity .track-artist{
+    color: #919191;
+    float: left;
+    clear: left;
+}
+.track-entity .track-duration{
+    color: #919191;
+    float: left;
+    clear: left;
+}
+.track-entity .preview-cover{
+    position: relative;
+}
+.track-entity .preview-cover i{
+    font-size: 40px;
+    position: absolute;
+    display: none;
+    opacity: 0.7;
+    width: 100%;
+    text-align: center;
+    line-height: 64px;
+    color: #fff;
+}
+.track-entity .preview-cover:hover i {
+    display: block;
+
+}
+.track-entity.big img{
+    height: 120px;
+}
+.track-entity.big .track-title{
+    font-size: 18px;
+}
+.track-entity.big .track-artist{
+    font-size: 18px;
+}
+.track-entity.big audio{
+    float: left;
+    margin-top: 5px;
+}
+
+
+.found-tracks-list{
+    border: 1px solid #CFCFCF;
+}
+.found-tracks-list li{
+    border-bottom: 1px solid #CFCFCF;
+    padding: 10px 0 4px 10px;
+    position: relative;
+}
+.background-filling{
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 0;
+    background-color: #EEEEEE;
+    top: 0;
+    left: 0;
+}
+.found-tracks-list li:last-child{
+    border-bottom: none;
+}
+
+.found-tracks-list li .button{
+    margin-bottom: 0;
+}
+
+.preview-player{
+    float: left;
+    clear: both;
+    font-size: 40px;
+}
+.preview-player span{
+    vertical-align: middle;
+}
+.preview-player .playback-bar-wrapper{
+    vertical-align: middle;
+}
+
+.track-preview-modal{
+    width: 50%;
+}
+
+.player-current-track {
+    float:left;
+    width: 100vw;
+}
+
+.player-next-track{
+    background-color: #EEEEEE;
+    float: left;
+    width: 100vw;
+}
+
+.player-tracks-holder{
+    width: 9999px;
+}

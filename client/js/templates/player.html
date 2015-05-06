@@ -1,0 +1,25 @@
+<div class="player-tracks-holder" >
+    <div ng-if="currentTrack" class="player-current-track" ng-style="{'margin-left': -currentTrack.progress + 'vw'}">
+        <span class="track-entity clearfix">
+            <a class="preview-cover" >
+                <img ng-src="{{currentTrack.album.cover}}" width="64" height="64"/></a>
+            <span class="track-titles">
+                <span class="track-title" ng-bind="currentTrack.title"></span>
+                <span class="track-artist" ng-bind="'by ' + currentTrack.artist.name"></span>
+                <span class="track-duration" ng-bind="(currentTrack.duration | secondsToTime)"></span>
+            </span>
+        </span>
+    </div>
+    <div ng-if="nextTrack" class="player-next-track">
+        <span class="track-entity clearfix">
+            <a class="preview-cover" >
+                <img ng-src="{{nextTrack.album.cover}}" width="64" height="64"/></a>
+            <span class="track-titles">
+                <span class="track-title" ng-bind="nextTrack.title"></span>
+                <span class="track-artist" ng-bind="'by ' + nextTrack.artist.name"></span>
+                <span class="track-duration" ng-bind="(nextTrack.duration | secondsToTime)"></span>
+            </span>
+        </span>
+    </div>
+</div>
+

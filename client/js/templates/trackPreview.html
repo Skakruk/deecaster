@@ -1,0 +1,21 @@
+<div class="track-entity big clearfix">
+    <a ng-click="playPause(track)" class="preview-cover">
+        <img ng-src="{{track.album.cover}}" width="120" height="120"/>
+    </a>
+
+    <div class="track-titles">
+        <span class="track-title" ng-bind="track.title"></span>
+        <span class="track-artist" ng-bind="'by ' + track.artist.name"></span>
+
+        <div class="preview-player">
+            <span ng-click="audio.paused ? audio.play() : audio.pause()">
+                <i class="fa fa-play-circle-o" ng-class="{'fa-play': audio.paused, 'fa-pause': !audio.paused}"></i>
+            </span>
+
+            <div class="playback-bar-wrapper">
+                <div class="playback-bar-progress" ng-style="{width: audio.progress * 100 +'%'}"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="appDbc">
+<head>
+    <link href="bower_components/foundation/css/normalize.min.css" type="text/css" rel="stylesheet"/>
+    <link href="bower_components/foundation/css/foundation.min.css" type="text/css" rel="stylesheet"/>
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+    <script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/services/deezerFactory.js"></script>
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-socket-io/socket.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+    <script src="bower_components/angular-foundation/mm-foundation.min.js"></script>
+    <script src="bower_components/angular-foundation/mm-foundation-tpls.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/angular-lodash/angular-lodash.js"></script>
+    <script src="bower_components/angular-audio/app/angular.audio.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/playerController.js"></script>
+    <script src="js/controllers/broadcastController.js"></script>
+    <script src="js/controllers/broadcastDetailsController.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <script src="js/services/broadcastService.js"></script>
+    <script src="js/services/userService.js"></script>
+    <script src="js/services/helpersService.js"></script>
+    <script src="js/services/main.js"></script>
+    <script src="js/directives/playerDirective.js"></script>
+    <script src="js/directives/main.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body >
+<div id="dz-root"></div>
+<div class="main-content clearfix">
+    <div class="small-2 columns">
+        <div ng-if="!user" ng-controller="LoginCtrl as l">
+            <button type="button" ng-click="l.login()">Login</button>
+        </div>
+    </div>
+    <div class="small-10 columns" ui-view></div>
+</div>
+
+{{broadcasting}}
+<div player-main id="player-stick-bottom" ng-show="broadcasting || listeningTo"></div>
+</body>
+</html>

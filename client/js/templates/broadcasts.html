@@ -1,0 +1,9 @@
+<button class="button" ng-click="bctrl.openCreateBCModal()">Create your own broadcast</button>
+<ul ng-repeat="bc in bctrl.broadcasts">
+    <li>
+        {{bc.name}} by {{bc._creator.name}}
+        <a ui-sref="broadcast({ id: bc._id })">Check it</a>
+    </li>
+</ul>
+
+<div ui-view="modal" autoscroll="false"></div>

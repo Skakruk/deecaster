@@ -1,0 +1,61 @@
+<h3>{{bdet.bc.name}}</h3>
+
+<div ng-if="!bdet.isOwner() ">
+    <button type="button" ng-show="!bdet.listeningToThisBC()"  ng-click="bdet.join()">Join</button>
+    <button type="button" ng-show="bdet.listeningToThisBC()" ng-click="bdet.left()">Left</button>
+</div>
+
+
+<ul ng-repeat="listener in bdet.bc.listeners">
+    <li>{{listener.name}}</li>
+</ul>
+<div ng-if="bdet.isOwner()">
+    <div class="search-track-wrap">
+        <input type="text" ng-model="bdet.searchTrack" placeholder="Search tracks" ng-keyup="bdet.searchTracks(bdet.searchTrack)"/>
+        <i ng-show="bdet.loadingTracks" class="fa fa-cog fa-spin spinner"></i>
+        <i ng-show="!bdet.loadingTracks && bdet.foundTracks.length > 0" class="fa fa-times close" ng-click="bdet.clearSearch()"></i>
+        <ul ng-show="bdet.foundTracks.length > 0" class="no-bullet found-tracks-list">
+            <li ng-repeat="track in bdet.foundTracks" class="clearfix">
+                <span class="track-entity clearfix">
+                    <a ng-click="bdet.trackPreview(track)" class="preview-cover" >
+                        <i class="fa" ng-class="{'fa-play': !track.audio || track.audio.paused, 'fa-pause': track.audio && !track.audio.paused}"></i>
+                        <img ng-src="{{track.album.cover}}" width="64" height="64"/></a>
+                    <span class="track-titles">
+                        <span class="track-title" ng-bind="track.title"></span>
+                        <span class="track-artist" ng-bind="'by ' + track.artist.name"></span>
+                        <span class="track-duration" ng-bind="(track.duration | secondsToTime)"></span>
+                    </span>
+                </span>
+                <a class="button secondary right" ng-click="bdet.addToQueue(track)"><i class="fa fa-plus"></i></a>
+                <div class="background-filling" ng-style="{width: track.audio.progress * 100+ '%'}"></div>
+            </li>
+        </ul>
+    </div>
+
+<a class="button small" ng-click="bdet.openAddPlaylistModal()">Add from playlist</a>
+
+<h3>Queue</h3>
+<table style="width:100%">
+    <thead>
+    <tr>
+        <th>Track</th>
+        <th>Artist</th>
+        <th>Album</th>
+        <th>L.</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="track in bdet.bc.tracklist">
+            <td>{{track.title}}</td>
+            <td>{{track.artist.name}}</td>
+            <td>{{track.album.title}}</td>
+            <td>{{track.duration | secondsToTime}}</td>
+            <td><a>Remove</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" ng-click="bdet.startBC()">Start broadcast!</button>
+
+</div>

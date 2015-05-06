@@ -1,0 +1,38 @@
+<div ng-show="!selectedPlaylist">
+    <ul class="clearing-thumbs" data-clearing>
+        <li ng-repeat="playlist in playlists">
+            <a ng-click="selectPlaylist(playlist)" class="th">
+                <img ng-src="{{playlist.picture}}"/>
+                <span>{{playlist.title}}</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+<div ng-show="selectedPlaylist">
+    <a ng-click="selectAnother()">Another playlist</a>
+{{toggleState}}
+    <div style="max-height: 500px; overflow-y: auto">
+    <table style="width:100%" id="add-tracks-table">
+        <thead>
+        <tr>
+            <th><input type="checkbox" ng-model="toggleState"/></th>
+            <th>Track</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>L.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="track in selectedPlaylist.tracks">
+            <th><input type="checkbox" ng-model="track.checked"/></th>
+            <td>{{track.title}}</td>
+            <td>{{track.artist.name}}</td>
+            <td>{{track.album.title}}</td>
+            <td>{{track.duration | secondsToTime}}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <button type="button" ng-click="addTracksToQueue()">Add to queue</button>
+</div>
